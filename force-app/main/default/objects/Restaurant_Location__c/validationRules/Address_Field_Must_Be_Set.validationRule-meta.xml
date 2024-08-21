@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Address_Field_Must_Be_Set</fullName>
+    <active>true</active>
+    <description>If the “Address” field is blank and the “Region” field is not set to “Other”,
+then the “Status” field cannot be “Active”</description>
+    <errorConditionFormula>ISBLANK(Address__c) &amp;&amp; NOT(ISPICKVAL(Region__c,&apos;Other&apos;)) &amp;&amp;  ISPICKVAL(Status__c,&apos;Active&apos;)</errorConditionFormula>
+    <errorDisplayField>Address__c</errorDisplayField>
+    <errorMessage>Address field must be set for all regions except for &apos;Other&apos; in order to activate a location</errorMessage>
+</ValidationRule>
